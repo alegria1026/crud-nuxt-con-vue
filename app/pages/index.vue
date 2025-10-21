@@ -84,7 +84,7 @@ const handleDelete = async (id: number) => {
 
 .header {
   text-align: center;
-  padding: 3rem 1rem 2rem;
+  padding: 3rem 1.5rem 2rem;
   background: white;
   border-bottom: 1px solid #e5e7eb;
 }
@@ -104,9 +104,9 @@ const handleDelete = async (id: number) => {
 }
 
 .content {
-  max-width: 700px;
+  max-width: 680px;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding: 2.5rem 1.5rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -138,8 +138,9 @@ const handleDelete = async (id: number) => {
   font-weight: 500;
   color: #6b7280;
   background: #f3f4f6;
-  padding: 0.25rem 0.75rem;
+  padding: 0.375rem 0.875rem;
   border-radius: 9999px;
+  white-space: nowrap;
 }
 
 @media (max-width: 768px) {
@@ -152,12 +153,12 @@ const handleDelete = async (id: number) => {
   }
 
   .content {
-    padding: 1.5rem 1rem;
-    gap: 2rem;
+    padding: 2rem 1.25rem;
+    gap: 2.5rem;
   }
 
   .section-title {
-    font-size: 1.25rem;
+    font-size: 1.375rem;
   }
 }
 
@@ -170,9 +171,23 @@ const handleDelete = async (id: number) => {
     font-size: 1.75rem;
   }
 
+  .subtitle {
+    font-size: 0.9375rem;
+  }
+
   .content {
-    padding: 1rem;
-    gap: 1.5rem;
+    padding: 1.5rem 1rem;
+    gap: 2rem;
+    max-width: 100%;
+  }
+
+  .section-title {
+    font-size: 1.25rem;
+  }
+
+  .posts-count {
+    font-size: 0.8125rem;
+    padding: 0.25rem 0.75rem;
   }
 }
 </style>

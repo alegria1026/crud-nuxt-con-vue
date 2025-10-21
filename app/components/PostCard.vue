@@ -69,39 +69,45 @@ const emit = defineEmits<{
   margin: 0;
   flex: 1;
   min-width: 0;
+  word-break: break-word;
 }
 
 .card-date {
   font-size: 0.875rem;
   color: #6b7280;
   white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .card-content {
   color: #374151;
   line-height: 1.6;
-  margin: 0 0 1rem 0;
+  font-size: 0.9375rem;
+  margin: 0 0 1.25rem 0;
   white-space: pre-wrap;
-  word-wrap: break-word;
+  word-break: break-word;
 }
 
 .card-actions {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
 .btn {
   display: inline-flex;
   align-items: center;
-  gap: 0.375rem;
-  padding: 0.5rem 1rem;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
   font-size: 0.875rem;
   font-weight: 500;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
+  flex: 1;
+  min-width: fit-content;
 }
 
 .btn-edit {
@@ -124,16 +130,25 @@ const emit = defineEmits<{
 
 @media (max-width: 640px) {
   .card {
-    padding: 1rem;
+    padding: 1.25rem;
   }
 
   .card-title {
     font-size: 1rem;
   }
 
+  .card-content {
+    font-size: 0.875rem;
+  }
+
+  .card-actions {
+    gap: 0.5rem;
+  }
+
   .btn {
-    padding: 0.375rem 0.75rem;
+    padding: 0.5rem 1rem;
     font-size: 0.8125rem;
+    flex: 1;
   }
 }
 </style>

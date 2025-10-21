@@ -48,7 +48,7 @@ const handleBackdropClick = (e: MouseEvent) => {
   align-items: center;
   justify-content: center;
   z-index: 1000;
-  padding: 1rem;
+  padding: 1.5rem;
   overflow-y: auto;
 }
 
@@ -88,6 +88,7 @@ const handleBackdropClick = (e: MouseEvent) => {
   cursor: pointer;
   color: #6b7280;
   transition: all 0.2s ease;
+  flex-shrink: 0;
 }
 
 .modal-close:hover {
@@ -97,6 +98,8 @@ const handleBackdropClick = (e: MouseEvent) => {
 
 .modal-body {
   padding: 1.5rem;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .modal-enter-active,
@@ -130,9 +133,12 @@ const handleBackdropClick = (e: MouseEvent) => {
     max-height: 90vh;
   }
 
-  .modal-header,
+  .modal-header {
+    padding: 1.25rem;
+  }
+
   .modal-body {
-    padding: 1rem;
+    padding: 1.25rem;
   }
 }
 </style>

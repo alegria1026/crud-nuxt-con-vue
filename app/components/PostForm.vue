@@ -100,7 +100,9 @@ const isValid = computed(() => title.value.trim() && content.value.trim());
 .form-input,
 .form-textarea {
   width: 100%;
-  padding: 0.75rem;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0.75rem 1rem;
   font-size: 0.9375rem;
   color: #111827;
   background: white;
@@ -118,7 +120,7 @@ const isValid = computed(() => title.value.trim() && content.value.trim());
 
 .form-textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 150px;
   font-family: inherit;
   line-height: 1.6;
 }
@@ -131,7 +133,7 @@ const isValid = computed(() => title.value.trim() && content.value.trim());
 
 .btn {
   flex: 1;
-  padding: 0.75rem 1.5rem;
+  padding: 0.875rem 1.5rem;
   font-size: 0.9375rem;
   font-weight: 500;
   border: none;
@@ -166,7 +168,12 @@ const isValid = computed(() => title.value.trim() && content.value.trim());
 @media (max-width: 640px) {
   .form-input,
   .form-textarea {
-    font-size: 16px; /* Previene zoom en iOS */
+    font-size: 16px;
+    padding: 0.75rem;
+  }
+
+  .form-textarea {
+    min-height: 120px;
   }
 
   .form-actions {
@@ -175,6 +182,7 @@ const isValid = computed(() => title.value.trim() && content.value.trim());
 
   .btn {
     width: 100%;
+    padding: 0.75rem 1.5rem;
   }
 }
 </style>
