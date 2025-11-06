@@ -3,6 +3,7 @@ export type Post = {
     title: string;
     content: string;
     created_at: string;
+    user_id: number;
 };
 
 export const usePosts = () => {

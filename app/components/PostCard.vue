@@ -1,14 +1,12 @@
 <script setup lang="ts">
 import type { Post } from '~/composables/usePosts';
+import { useAuth } from '~/composables/useAuth';
 
-defineProps<{
-  post: Post;
-}>();
+const props = defineProps<{ post: Post }>();
+const emit = defineEmits<{ edit: []; delete: [] }>();
 
-const emit = defineEmits<{
-  edit: [];
-  delete: [];
-}>();
+const { user } = useAuth();
+const isOwner = computed(() => user.value?.id === props.post.user_id);
 </script>
 
 <template>
@@ -20,7 +18,8 @@ const emit = defineEmits<{
 
     <p class="card-content">{{ post.content }}</p>
 
-    <div class="card-actions">
+    <!-- Solo mostrar si el post pertenece al usuario -->
+    <div v-if="isOwner" class="card-actions">
       <button @click="emit('edit')" class="btn btn-edit" aria-label="Editar post">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
@@ -28,6 +27,7 @@ const emit = defineEmits<{
         </svg>
         Editar
       </button>
+
       <button @click="emit('delete')" class="btn btn-delete" aria-label="Eliminar post">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <polyline points="3 6 5 6 21 6"/>
@@ -38,6 +38,7 @@ const emit = defineEmits<{
     </div>
   </article>
 </template>
+
 
 <style scoped>
 .card {
